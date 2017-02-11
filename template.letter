@@ -1,0 +1,128 @@
+%%
+% German Latex Letter Template
+% Use if you want to crate a Letter in DIN A4. You can use it in English and German
+% as well, just set language at begining of plain text.
+% Created by Jan Boelmann @ Nov. 2016 Jan.boelmann@live.de
+%%
+
+\documentclass[
+    DIN,
+    sender,
+    paper=a4,
+    version=last,
+    fontsize=11pt,
+    DIV=13,
+    BCOR=0mm]{scrlttr2}
+\parskip3mm
+\parindent0mm % if you want to have no lineskip
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage[rm,light]{roboto}
+\usepackage[T1]{fontenc}
+\firstfoot{\rule{\textwidth}{.4pt}}
+% Set Page layout:
+\usepackage{changepage}
+%\changepage{text height}{text width}{even-side margin}
+%{odd-side margin}{column sep.}
+%{topmargin}{headheight}{headsep}{footskip}
+\changepage{+3cm}{}{}{}{}{}{}{}{-5cm}
+% symbols: Mobilephone, Phone, E-Mail
+\RequirePackage{marvosym}
+
+% Text of this document (sender.lco) is UTF-8 encoded
+\usepackage[utf8]{inputenc}
+
+% if yu wnat some colors...
+\usepackage{color}
+
+% see Koma script for more detailed descriptions
+% comment or delate if not needed
+\KOMAoptions{
+    foldmarks=true,
+    fromalign=right,
+    footsepline=on,
+    fromurl=on,
+    fromemail=true,
+    fromfax=off,
+    fromphone=false,
+    frommobilephone=false,
+}
+
+
+
+% You can define colors here like this...
+%\definecolor{mygray}{gray}{.55}
+%\definecolor{myblue}{rgb}{0.25,0.45,0.75}
+
+
+% Sender data:
+$if(fromphone)$
+\setkomavar{fromphone}[\Telefon~]{$fromphone$}
+$endif$
+$if(frommobilephone)$
+\setkomavar{frommobilephone}[\Mobilefone~]{$frommobilephone$}
+$endif$
+$if(fromemail)$
+\setkomavar{fromemail}[\Letter~]{$fromemail$}
+$endif$
+% hack to get horizontal line
+\setkomavar{fromurl}[]{\rule{\textwidth}{.4pt}}
+\setkomavar{backaddress}{$fromname$, $fromstreet$, $fromzip$}
+\setkomavar{fromaddress}{$fromname$\\$fromstreet$\\$fromzip$}
+
+
+
+% optical stuff:
+\setkomafont{fromname}{\bfseries\color{black}\LARGE}
+\setkomafont{fromrule}{\color{black}}
+\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{black}}
+% maybe in blue...
+%\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{myblue}}
+\setkomafont{addressee}{\small}
+
+
+%\setkomavar{signature}{Sender Name}
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% define vertical distance for signature
+%\@setplength{sigbeforevskip}{1.8cm}
+
+\begin{document}
+% Set Appendix text at very end (dubble point will be set automatically)
+%\setkomavar*{enclseparator}{Appendix}
+% subject, date, place:
+\setkomavar{subject}{$subject$}
+$if(date)$
+\setkomavar{date}{$date$}
+$else$
+\setkomavar{date}{\today}
+$endif$
+\setkomavar{place}{$place$}
+
+
+% Set recipient of letter
+\begin{letter}{
+$recipient$
+}
+
+$if(salutation)$
+\opening{$salutation$}
+$else$
+\opening{Sehr geehrte Damen und Herren,}
+$endif$
+
+$body$
+
+$if(signature)$
+\closing{Mit freundlichen Grüßen\\\includegraphics[width=3.5cm]{sig}}
+$else$
+\closing{Mit freundlichen Grüßen}
+$endif$
+$if(encl)$
+\encl{$encl$}
+$endif$
+% end of letter
+\end{letter}
+
+\end{document}
