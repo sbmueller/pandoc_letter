@@ -18,9 +18,9 @@
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
 \usepackage{graphicx}
-\usepackage[rm,light]{roboto}
+%\usepackage[rm,light]{roboto}
 \usepackage[T1]{fontenc}
-\firstfoot{\rule{\textwidth}{.4pt}}
+%\firstfoot{\rule{\textwidth}{.4pt}}
 % Set Page layout:
 \usepackage{changepage}
 %\changepage{text height}{text width}{even-side margin}
@@ -42,14 +42,16 @@
     foldmarks=true,
     fromalign=right,
     footsepline=on,
-    fromurl=on,
-    fromemail=true,
+    fromurl=true, % hack for horizontal line
+    fromemail=false,
     fromfax=off,
     fromphone=false,
     frommobilephone=false,
 }
 
 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % You can define colors here like this...
 %\definecolor{mygray}{gray}{.55}
@@ -58,12 +60,15 @@
 
 % Sender data:
 $if(fromphone)$
+\KOMAoption{fromphone}{true}
 \setkomavar{fromphone}[\Telefon~]{$fromphone$}
 $endif$
 $if(frommobilephone)$
+\KOMAoption{frommobilephone}{true}
 \setkomavar{frommobilephone}[\Mobilefone~]{$frommobilephone$}
 $endif$
 $if(fromemail)$
+\KOMAoption{fromemail}{true}
 \setkomavar{fromemail}[\Letter~]{$fromemail$}
 $endif$
 % hack to get horizontal line

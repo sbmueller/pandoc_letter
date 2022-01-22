@@ -4,15 +4,15 @@ fromstreet: YourSreet 4
 fromzip: 12345 München
 fromemail: my@mail.com
 recipient: |
-    Title
+  Title
 
-    Auguststr. 3
+  Auguststr. 3
 
-    11234 Berlin
-subject: "Wichtige Information"
+  11234 Berlin
+subject: 'Wichtige Information'
 #salutation: "Sehr geehrte Frau Maier,"
-#signature: 1  # place sig.pdf in same folder
-place: "München"
+signature: false # place sig.pdf in same folder
+place: 'München'
 #date: "10. Mai 2020"
 ...
 
