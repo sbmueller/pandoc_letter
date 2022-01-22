@@ -33,7 +33,11 @@
 % Text of this document (sender.lco) is UTF-8 encoded
 \usepackage[utf8]{inputenc}
 
-% if yu wnat some colors...
+\KOMAoption{firstfoot}{false}
+
+\renewcommand\pagemark{\usekomafont{pagenumber}{\thepage~von~\letterlastpage}}
+
+% if you want some colors...
 \usepackage{color}
 
 % see Koma script for more detailed descriptions
@@ -116,6 +120,9 @@ $if(salutation)$
 $else$
 \opening{Sehr geehrte Damen und Herren,}
 $endif$
+
+%\thispagestyle{plain}
+%\ifnum\letterlastpage>1 \thispagestyle{plain}\else\fi
 
 $body$
 
