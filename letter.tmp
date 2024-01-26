@@ -7,7 +7,6 @@
 
 \documentclass[
     DIN,
-    sender,
     paper=a4,
     version=last,
     fontsize=11pt,
@@ -19,6 +18,7 @@
 \usepackage{csquotes}
 \usepackage{graphicx}
 %\usepackage[rm,light]{roboto}
+\usepackage{cmbright}
 \usepackage[T1]{fontenc}
 %\firstfoot{\rule{\textwidth}{.4pt}}
 % Set Page layout:
@@ -85,9 +85,9 @@ $endif$
 % optical stuff:
 \setkomafont{fromname}{\bfseries\color{black}\LARGE}
 \setkomafont{fromrule}{\color{black}}
-\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{black}}
+\setkomafont{fromaddress}{\small\mdseries\color{black}}
 % maybe in blue...
-%\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{myblue}}
+%\setkomafont{fromaddress}{\small\mdseries\color{myblue}}
 \setkomafont{addressee}{\small}
 
 

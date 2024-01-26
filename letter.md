@@ -14,6 +14,7 @@ subject: 'Wichtige Information'
 signature: false # place sig.pdf in same folder
 place: 'München'
 #date: "10. Mai 2020"
+#encl: "Amtliche Dokumente"
 ...
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
