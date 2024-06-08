@@ -9,7 +9,7 @@
     DIN,
     paper=a4,
     version=last,
-    fontsize=11pt,
+    fontsize=12pt,
     DIV=13,
     BCOR=0mm]{scrlttr2}
 \parskip3mm
@@ -17,8 +17,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
 \usepackage{graphicx}
-%\usepackage[rm,light]{roboto}
-\usepackage{cmbright}
+\usepackage[lining,light]{InriaSerif}
 \usepackage[T1]{fontenc}
 %\firstfoot{\rule{\textwidth}{.4pt}}
 % Set Page layout:
